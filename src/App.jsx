@@ -64,13 +64,13 @@ function App() {
   <div className="wrapper">
     <div className="form-card">
 
-      <h1 className="title">Caleb's Shop – Submit Request</h1>
+      <h1 className="title">Caleb's Shop - Submit Request</h1>
 
       <form onSubmit={handleSubmit} className="form">
 
         <input
           className="input"
-          placeholder="Name"
+          placeholder="Pangalan po"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
