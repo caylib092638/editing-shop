@@ -64,7 +64,7 @@ function App() {
   <div className="wrapper">
     <div className="form-card">
 
-      <h1 className="title">Editing Shop – Submit Request</h1>
+      <h1 className="title">Gay Editorial – Submit Request</h1>
 
       <form onSubmit={handleSubmit} className="form">
 
