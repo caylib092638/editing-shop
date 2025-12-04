@@ -64,13 +64,13 @@ function App() {
   <div className="wrapper">
     <div className="form-card">
 
-      <h1 className="title">Gay Editorial – Submit Request</h1>
+      <h1 className="title">Caleb's Editorial Shop – Submit Request</h1>
 
       <form onSubmit={handleSubmit} className="form">
 
         <input
           className="input"
-          placeholder="Full Name"
+          placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -78,7 +78,7 @@ function App() {
 
         <input
           className="input"
-          placeholder="Contact Number"
+          placeholder="Contact Number or TG"
           value={contact}
           onChange={(e) => setContact(e.target.value)}
           required
@@ -86,7 +86,7 @@ function App() {
 
         <input
           className="input"
-          placeholder="Email"
+          placeholder="Email or FB Account"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
