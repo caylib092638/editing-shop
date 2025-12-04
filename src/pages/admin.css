@@ -128,3 +128,36 @@ body {
 .loading {
   color: #ccc;
 }
+/* modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3,7,13,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-card {
+  width: 90%;
+  max-width: 860px;
+  background: #0f1418;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: #e6e6e6;
+}
+
+/* small button style overrides (reused) */
+.view-btn {
+  background: #238636;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.view-btn:hover { opacity: 0.95; }
+
+.orders-table td select { min-width: 140px; }
