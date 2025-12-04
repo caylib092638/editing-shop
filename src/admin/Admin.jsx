@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import supabase from "./supabaseClient";
+    import { useState, useEffect } from "react";
+import supabase from "../supabaseClient";
 
 export default function Admin() {
   const [orders, setOrders] = useState([]);
@@ -12,7 +12,7 @@ export default function Admin() {
         .order("created_at", { ascending: false });
 
       if (error) {
-        console.error("Error loading orders:", error);
+        console.error("Error fetching orders:", error);
       } else {
         setOrders(data);
       }
@@ -22,14 +22,10 @@ export default function Admin() {
   }, []);
 
   return (
-    <div style={{ maxWidth: "900px", margin: "40px auto", fontFamily: "Arial" }}>
-      <h1>Admin Panel – Submitted Orders</h1>
+    <div style={{ maxWidth: "800px", margin: "40px auto", fontFamily: "Arial" }}>
+      <h2>Admin Panel – All Orders</h2>
 
-      <table
-        border="1"
-        cellPadding="10"
-        style={{ width: "100%", borderCollapse: "collapse", background: "white" }}
-      >
+      <table border="1" cellPadding="10" style={{ width: "100%", borderCollapse: "collapse" }}>
         <thead>
           <tr>
             <th>Name</th>
@@ -41,7 +37,6 @@ export default function Admin() {
             <th>Created</th>
           </tr>
         </thead>
-
         <tbody>
           {orders.map(order => (
             <tr key={order.id}>
@@ -51,12 +46,8 @@ export default function Admin() {
               <td>{order.description}</td>
               <td>
                 {order.file_url ? (
-                  <a href={order.file_url} target="_blank" rel="noreferrer">
-                    View File
-                  </a>
-                ) : (
-                  "—"
-                )}
+                  <a href={order.file_url} target="_blank" rel="noreferrer">View File</a>
+                ) : "None"}
               </td>
               <td>{order.status}</td>
               <td>{new Date(order.created_at).toLocaleString()}</td>
