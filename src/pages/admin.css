@@ -161,3 +161,20 @@ body {
 .view-btn:hover { opacity: 0.95; }
 
 .orders-table td select { min-width: 140px; }
+.orders-section {
+  padding: 20px;
+}
+
+.order-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.order-card img {
+  width: 150px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
