@@ -1,7 +1,6 @@
 // src/pages/AdminDashboard.jsx
 import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
-import "./admin.css"; // keep your dark CSS
 import "./Admin.css";
 
 
