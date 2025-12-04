@@ -60,34 +60,68 @@ function App() {
     setFile(null);
     setLoading(false);
   }
-
   return (
-    <div className="container">
-      <h1>Editing Shop - Submit Your Request</h1>
-      <form onSubmit={handleSubmit}>
-        <input placeholder="Full Name" value={name}
-          onChange={(e) => setName(e.target.value)} required />
+  <div className="wrapper">
+    <div className="form-card">
 
-        <input placeholder="Contact Number" value={contact}
-          onChange={(e) => setContact(e.target.value)} required />
+      <h1 className="title">Editing Shop – Submit Request</h1>
 
-        <input placeholder="Email" value={email}
-          onChange={(e) => setEmail(e.target.value)} required />
+      <form onSubmit={handleSubmit} className="form">
 
-        <textarea placeholder="Describe the edit you want"
+        <input
+          className="input"
+          placeholder="Full Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+
+        <input
+          className="input"
+          placeholder="Contact Number"
+          value={contact}
+          onChange={(e) => setContact(e.target.value)}
+          required
+        />
+
+        <input
+          className="input"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <textarea
+          className="textarea"
+          placeholder="Describe the edit you want"
           value={description}
-          onChange={(e) => setDescription(e.target.value)} required />
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
 
-        <input type="file" onChange={(e) => setFile(e.target.files[0])} required />
+        <input
+          type="file"
+          className="file-input"
+          onChange={(e) => setFile(e.target.files[0])}
+          required
+        />
 
-        <button disabled={loading}>
+        <button
+          disabled={loading}
+          className="button"
+        >
           {loading ? "Submitting..." : "Submit"}
         </button>
+
       </form>
 
-      {message && <p>{message}</p>}
+      {message && (
+        <p className="message">{message}</p>
+      )}
     </div>
-  );
+  </div>
+);
 }
 
 export default App;
