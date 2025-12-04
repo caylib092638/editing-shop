@@ -60,6 +60,7 @@ function App() {
     setFile(null);
     setLoading(false);
   }
+  document.title = "Pule's Shop";
   return (
   <div className="wrapper">
     <div className="form-card">
