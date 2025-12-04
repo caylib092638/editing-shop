@@ -44,21 +44,7 @@ export default function AdminDashboard() {
   }
 
   useEffect(() => {
-    const fetchOrders = async () => {
-    try {
-      const q = query(collection(db, "orders"));
-      const querySnapshot = await getDocs(q);
-
-      const orderData = [];
-      querySnapshot.forEach((doc) => {
-        orderData.push({ id: doc.id, ...doc.data() });
-      });
-
-      setOrders(orderData);
-    } catch (error) {
-      console.error("Error fetching orders:", error);
-    }
-  };
+   
     fetchOrders();
   }, []);
 
