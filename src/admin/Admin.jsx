@@ -58,3 +58,6 @@ export default function Admin() {
     </div>
   );
 }
+git add .
+git commit -m "Fix vercel routing"
+git push
