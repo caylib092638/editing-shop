@@ -1,0 +1,130 @@
+/* 🌙 Dark Mode Admin Dashboard Styling */
+
+body {
+  background: #0d1117;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #e6e6e6;
+}
+
+/* Layout */
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #161b22;
+  padding: 20px;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  background: #1c2128;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sidebar li:hover,
+.sidebar .active {
+  background: #238636;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Header */
+.top-header {
+  background: #161b22;
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logout-btn {
+  background: #d32f2f;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  background: #a62828;
+}
+
+/* Content box */
+.content-box {
+  background: #161b22;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.section-title {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+/* Table */
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table th {
+  background: #1c2128;
+  padding: 12px;
+  text-align: left;
+}
+
+.orders-table td {
+  padding: 10px;
+  border-bottom: 1px solid #2c3138;
+}
+
+.orders-table tr:hover {
+  background: #1f242c;
+}
+
+.view-btn {
+  background: #238636;
+  color: white;
+  border: none;
+  padding: 7px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.view-btn:hover {
+  background: #1f6f2f;
+}
+
+/* Loading */
+.loading {
+  color: #ccc;
+}

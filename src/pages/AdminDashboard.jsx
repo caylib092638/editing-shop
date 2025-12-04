@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../supabaseClient";
+import "./admin.css";
 
 export default function AdminDashboard() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch all orders
   async function fetchOrders() {
     setLoading(true);
 
@@ -28,58 +28,65 @@ export default function AdminDashboard() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Header */}
-      <header className="bg-white shadow p-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-        <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
-          Logout
-        </button>
-      </header>
+    <div className="admin-container">
+
+      {/* Sidebar */}
+      <aside className="sidebar">
+        <h2 className="sidebar-title">Admin Panel</h2>
+        <ul>
+          <li className="active">Orders</li>
+          <li>Settings</li>
+          <li>Logs</li>
+        </ul>
+      </aside>
 
       {/* Main Content */}
-      <main className="p-6">
-        <div className="bg-white p-4 rounded shadow">
-          <h2 className="text-xl font-semibold mb-4">Orders List</h2>
+      <div className="main-content">
 
-          {/* Loading State */}
-          {loading && <p>Loading orders...</p>}
+        {/* Top Header */}
+        <header className="top-header">
+          <h1>Orders Dashboard</h1>
+          <button className="logout-btn">Logout</button>
+        </header>
 
-          {/* Orders Table */}
-          {!loading && (
-            <table className="w-full border-collapse">
+        {/* Table Section */}
+        <div className="content-box">
+          <h2 className="section-title">Orders List</h2>
+
+          {loading ? (
+            <p className="loading">Loading orders...</p>
+          ) : (
+            <table className="orders-table">
               <thead>
-                <tr className="bg-gray-200 text-left">
-                  <th className="p-2 border">ID</th>
-                  <th className="p-2 border">Name</th>
-                  <th className="p-2 border">Email</th>
-                  <th className="p-2 border">Contact</th>
-                  <th className="p-2 border">Status</th>
-                  <th className="p-2 border">Actions</th>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Contact</th>
+                  <th>Status</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
 
               <tbody>
                 {orders.map((order) => (
                   <tr key={order.id}>
-                    <td className="p-2 border">{order.id}</td>
-                    <td className="p-2 border">{order.name}</td>
-                    <td className="p-2 border">{order.email}</td>
-                    <td className="p-2 border">{order.contact_number}</td>
-                    <td className="p-2 border capitalize">{order.status}</td>
-                    <td className="p-2 border">
-                      <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
-                        View
-                      </button>
+                    <td>{order.id}</td>
+                    <td>{order.name}</td>
+                    <td>{order.email}</td>
+                    <td>{order.contact_number}</td>
+                    <td>{order.status}</td>
+                    <td>
+                      <button className="view-btn">View</button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           )}
-
         </div>
-      </main>
+
+      </div>
     </div>
   );
 }
