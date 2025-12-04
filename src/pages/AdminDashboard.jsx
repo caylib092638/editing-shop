@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 import "./admin.css"; // keep your dark CSS
+import "./Admin.css";
+
 
 function extractStoragePath(publicUrl) {
   if (!publicUrl) return null;
@@ -42,6 +44,21 @@ export default function AdminDashboard() {
   }
 
   useEffect(() => {
+    const fetchOrders = async () => {
+    try {
+      const q = query(collection(db, "orders"));
+      const querySnapshot = await getDocs(q);
+
+      const orderData = [];
+      querySnapshot.forEach((doc) => {
+        orderData.push({ id: doc.id, ...doc.data() });
+      });
+
+      setOrders(orderData);
+    } catch (error) {
+      console.error("Error fetching orders:", error);
+    }
+  };
     fetchOrders();
   }, []);
 
@@ -111,6 +128,33 @@ export default function AdminDashboard() {
     <div className="admin-container">
       <aside className="sidebar">
         <h2 className="sidebar-title">Admin Panel</h2>
+        <div className="orders-section">
+  <h2>Customer Orders</h2>
+
+  {orders.length === 0 ? (
+    <p>No orders found.</p>
+  ) : (
+    orders.map((order) => (
+      <div key={order.id} className="order-card">
+        <h3>Order ID: {order.id}</h3>
+
+        <p><strong>Name:</strong> {order.name}</p>
+        <p><strong>Email:</strong> {order.email}</p>
+        <p><strong>Phone:</strong> {order.phone}</p>
+        <p><strong>Selected Service:</strong> {order.service}</p>
+        <p><strong>Date:</strong> {order.date}</p>
+
+        {order.imageUrl && (
+          <div className="image-preview">
+            <p><strong>Uploaded Image:</strong></p>
+            <img src={order.imageUrl} alt="uploaded" />
+          </div>
+        )}
+      </div>
+    ))
+  )}
+</div>
+
         <ul>
           <li className="active">Orders</li>
           <li>Settings</li>
