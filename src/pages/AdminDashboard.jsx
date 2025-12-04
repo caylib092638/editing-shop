@@ -114,7 +114,7 @@ export default function AdminDashboard() {
     <div className="admin-container">
       <aside className="sidebar">
         <h2 className="sidebar-title">Admin Panel</h2>
-        <div className="orders-section">
+       <div className="orders-section">
   <h2>Customer Orders</h2>
 
   {orders.length === 0 ? (
@@ -126,20 +126,21 @@ export default function AdminDashboard() {
 
         <p><strong>Name:</strong> {order.name}</p>
         <p><strong>Email:</strong> {order.email}</p>
-        <p><strong>Phone:</strong> {order.phone}</p>
-        <p><strong>Selected Service:</strong> {order.service}</p>
-        <p><strong>Date:</strong> {order.date}</p>
+        <p><strong>Contact:</strong> {order.contact_number}</p>
+        <p><strong>Description:</strong> {order.description}</p>
+        <p><strong>Status:</strong> {order.status}</p>
 
-        {order.imageUrl && (
+        {order.file_url && (
           <div className="image-preview">
-            <p><strong>Uploaded Image:</strong></p>
-            <img src={order.imageUrl} alt="uploaded" />
+            <p><strong>Uploaded File:</strong></p>
+            <img src={order.file_url} alt="uploaded" />
           </div>
         )}
       </div>
     ))
   )}
 </div>
+
 
         <ul>
           <li className="active">Orders</li>
